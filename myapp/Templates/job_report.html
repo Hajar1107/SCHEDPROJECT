@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem Sequence Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .result-container {
+            margin-top: 30px;
+        }
+        .problem-info, .sequence-info {
+            margin-bottom: 20px;
+        }
+        .sequence-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sequence-item {
+            padding: 8px;
+            margin: 5px 0;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+        .metric-table th, .metric-table td {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Jobs Report :</h1>
+
+    <!-- Performance Metrics -->
+    {% load custom_filters %}
+    <h2>Jobs Performance Metrics</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Performance/Job</th>
+                {% for job in jobs %}
+                    <th>{{ job.name }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tardiness</td>
+                {% for job in jobs %}
+                    {% with performance_metric=performance_metrics|get_performance_metric:job.id %}
+                        <td>{{ performance_metric.T }}</td>
+                    {% endwith %}
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>Earliness</td>
+                {% for job in jobs %}
+                    {% with performance_metric=performance_metrics|get_performance_metric:job.id %}
+                        <td>{{ performance_metric.E }}</td>
+                    {% endwith %}
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>Flow Time</td>
+                {% for job in jobs %}
+                    {% with performance_metric=performance_metrics|get_performance_metric:job.id %}
+                        <td>{{ performance_metric.FT }}</td>
+                    {% endwith %}
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Percentage of Jobs on Time</h2>
+    <p>{{ jobs_on_time|floatformat:2 }} %</p>
+
+    <h2>Jobs Productivity</h2>
+    <table class="metric-table">
+        <thead>
+            <tr>
+                <th>Job</th>
+                <th>Productivity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for job in jobs %}
+                <tr>
+                    <td>{{ job.name }}</td>
+                    <td>
+                        {% with job_productivity=productivity|get_productivity:job.id|floatformat:2 %}
+                                {{ job_productivity }} %
+                        {% endwith %}  <!-- Close the 'with' block here -->
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Jobs Waiting Time</h2>
+    <table class="metric-table">
+        <thead>
+            <tr>
+                <th>Job</th>
+                <th>Waiting Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for job in jobs %}
+                <tr>
+                    <td>{{ job.name }}</td>
+                    <td>
+                        {% with job_attente=attente_job|get_attente:job.id %}
+                                {{ job_attente }} 
+                        {% endwith %}  <!-- Close the 'with' block here -->
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

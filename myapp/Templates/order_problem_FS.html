@@ -1,0 +1,70 @@
+<!-- order_problem_FS.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowShop Problem</title>
+    <style>
+        .blue-box {
+            background-color: lightblue; /* Fond bleu clair */
+            color: black;
+            padding: 30px;
+            text-align: center;
+            width: 50%;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
+
+        select, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        button:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="blue-box">
+        <h2>FlowShop Problem Configuration:</h2>
+        <form method="POST">
+            {% csrf_token %}
+            
+            <!-- Priority Rule selection -->
+            <div>
+                <label for="priority_rule">Priority Rule:</label>
+                <select name="priority_rule" id="priority_rule" required>
+                    <option value="">-- No Priority Rule --</option>
+                    <option value="FIFO">FIFO</option>
+                    <option value="LIFO">LIFO</option>
+                    <option value="LPT">LPT</option>
+                    <option value="SPT">SPT</option>
+                    <option value="EDD">EDD</option>
+                    <option value="WDD">WDD</option>
+                    <option value="JOHNSON">JOHNSON</option>
+                    <option value="CDS">CDS</option>
+                </select>
+            </div>
+            
+            <!-- Constraint selection -->
+            <div>
+                <label for="constraint">Constraint:</label>
+                <select name="constraint" id="constraint" >
+                    <option value="">-- No Constraint --</option>
+                    <option value="NO IDLE">NO IDLE</option>
+                    <option value="NO WAIT">NO WAIT</option>
+                    <option value="BLOCKING">BLOCKING</option>
+                    <option value="SDST">SDST</option>
+                    <option value="SIST">SIST</option>
+                    <option value="AVAILABILITY">AVAILABILITY</option>
+                </select>
+            </div>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

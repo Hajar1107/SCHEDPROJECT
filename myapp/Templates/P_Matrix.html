@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P_Matrix</title>
+    <style>
+        .table-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .table-wrapper {
+            overflow-x: auto; /* Permet le défilement horizontal */
+            width: 80%; /* Ajustez la largeur selon le besoin */
+            margin: auto;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%; /* La table prendra toute la largeur disponible */
+            text-align: center;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            min-width: 100px;
+        }
+
+        th {
+            background-color: #f1f1f1;
+        }
+
+        .header {
+            font-weight: bold;
+            background-color: #d9f7ff;
+        }
+
+        input[type="number"] {
+            width: 80%;
+            padding: 5px;
+            text-align: center;
+        }
+
+        /* Style pour le bouton en bas */
+        .submit-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="table-container">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            {% for job in jobs %}
+                                <th>J_{{ job.id }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for machine in machines %}
+                            <tr>
+                                <td>M_{{ machine.id }}</td>
+                                {% for job in jobs %}
+                                    <td>
+                                        <input type="number" name="processing_time_{{ machine.id }}_{{ job.id }}" value="0" min="0" required>
+                                    </td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                        
+                        <tr>
+                            <td>R</td>
+                            {% for job in jobs %}
+                                <td>
+                                    <input type="number" name="arrival_time_J_{{ job.id }}" value="0" min="0" required>
+                                </td>
+                            {% endfor %}
+                        </tr>
+
+                        <tr>
+                            <td>D</td>
+                            {% for job in jobs %}
+                                <td>
+                                    <input type="number" name="due_date_J_{{ job.id }}" value="0" min="0" required>
+                                </td>
+                            {% endfor %}
+                        </tr>
+                        <!--added weight-->
+                        <tr>
+                            <td>W</td>
+                            {% for job in jobs %}
+                                <td>
+                                    <input type="number" name="weight_J_{{ job.id }}" value="1.0" min="0" required>
+                                </td>
+                            {% endfor %}
+                        </tr>
+
+
+
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Submit button en bas -->
+            <div class="submit-container">
+                <button type="submit">Schedule</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

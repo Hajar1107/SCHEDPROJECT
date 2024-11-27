@@ -1,0 +1,602 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/favicon.png" type="">
+
+  <title> Schedular </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  <!-- responsive style -->
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    
+    <!-- jQuery -->
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+
+<!-- Bootstrap JS -->
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+
+<!-- Custom JS -->
+    <script src="{% static 'js/custom.js' %}"></script>
+
+
+</head>
+
+<body>
+
+  <div class="hero_area">
+
+    <div class="hero_bg_box">
+      <div class="bg_img_box">
+        <img src="{% static 'images/hero-bg.png'%}" alt="">
+      </div>
+    </div>
+
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="{% url 'index' %}">
+            <span>
+              Schedular
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}"> About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'service' %}">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'why' %}">Why Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'team' %}">Team</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
+              </li>
+              <form class="form-inline">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </form>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Schedular
+                    </h1>
+                    <p>
+                      Schedular is an intuitive scheduling app that optimizes production processes by organizing tasks, managing constraints, and improving resource utilization through real-time tracking and a Gantt chart.
+                    </p>
+                    <div class="btn-box">
+                      <a href="{% url 'about' %}" class="btn1">
+                        About us
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="{% static 'images/slider-img.png' %}" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Problem Ordering
+                    </h1>
+                    <p>
+                      Efficiently organize and prioritize production tasks by applying customized rules and managing operational constraints for a streamlined production flow.
+                    </p>
+                    <div class="btn-box">
+                      <a href="{% url 'order_problem' %}" class="btn1">
+                        Order My Problem
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="{% static 'images/slider-img.png'%}"alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Optimal Solution Finding
+                    </h1>
+                    <p>
+                      Leverage advanced algorithms to identify the most efficient scheduling solution, optimizing resource use and ensuring smooth production flow.
+                    </p>
+                    <div class="btn-box">
+                      <a href="{% url 'optimal_solution' %}" class="btn1">
+                        Find Optimal Solution
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="{% static 'images/slider-img.png' %}" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ol class="carousel-indicators">
+          <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+          <li data-target="#customCarousel1" data-slide-to="1"></li>
+          <li data-target="#customCarousel1" data-slide-to="2"></li>
+        </ol>
+      </div>
+
+    </section>
+    <!-- end slider section -->
+  </div>
+
+
+  <!-- service section -->
+
+  <section class="service_section layout_padding">
+  <div class="service_container">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Our <span>Services</span>
+        </h2>
+        <p>
+          Here are our services, designed to optimize production scheduling and resource utilization.
+        </p>
+      </div>
+      <div class="row justify-content-center"> <!-- Added justify-content-center -->
+        <div class="col-md-4">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static 'images/calendrier.png' %} " alt="">
+            </div>
+            <div class="detail-box">
+              <h5>Problem Ordering</h5>
+              <p>Efficiently order your production tasks by applying priority rules and managing operational constraints.</p>
+              <!-- Button that links to another page (e.g., problem-ordering.html) -->
+              <a href="{% url 'order_problem' %}" class="btn btn-primary">Order My Problem</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static 'images/meilleur.png' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>Optimal Solution Finding</h5>
+              <p>Use advanced algorithms to find the optimal scheduling solution, enhancing resource efficiency and production flow.</p>
+              <!-- Button that links to another page (e.g., optimal-solution.html) -->
+              <a href="{% url 'optimal_solution' %}" class="btn btn-primary">Find Optimal Solution</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- end service section -->
+
+  
+
+  <!-- end service section -->
+
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container  ">
+      <div class="heading_container heading_center">
+        <h2>
+          About <span>Us</span>
+        </h2>
+        <p>
+          Created Schedular, a cutting-edge scheduling application that assists in production scheduling in flow shop and job shop environments, streamlining workflows and enhancing efficiency with real-time tracking through an intuitive Gantt chart.
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="{% static 'images/img1.png' %}" alt="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <h3>
+              We Are Schedular
+            </h3>
+            <p>
+              Schedular is an innovative application dedicated to scheduling production processes in industrial environments such as flow shop and job shop. Our solution efficiently manages production schedules by considering priority rules and specific constraints.
+              The application provides a clear and detailed view of tasks through an interactive Gantt chart, making it easier to track real-time progress of production.
+              Whether you are a production manager or a workshop supervisor, Schedular helps you maximize the efficiency of your manufacturing processes, reduce costs, and improve delivery times.
+            </p>
+            <p>
+              Our mission is to make scheduling simpler, faster, and more accurate, so you can focus on what matters most: the performance of your production.
+            </p>
+            <a href="{% url 'about' %}">
+              Read More
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  <!-- why section -->
+
+  <section class="why_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Why Choose <span>Us</span>
+        </h2>
+      </div>
+      <div class="why_container">
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/easy.png' %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Easy-to-Use Interface
+            </h5>
+            <p>
+              With an intuitive design and interactive Gantt chart, you can manage production schedules effortlessly.
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/custom.png' %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Customizable to Your Needs
+            </h5>
+            <p>
+              Tailor our solution to meet the unique constraints and priorities of your production environment.
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/flexible.png' %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Maximum Flexibility
+            </h5>
+            <p>
+              Whether in a flow shop or job shop environment, our solution perfectly adapts to your specific production processes while respecting your business’s constraints and priorities.
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/timemoney.png' %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Time and Cost Savings
+            </h5>
+            <p>
+              By optimizing resource allocation and eliminating bottlenecks, our solution helps reduce downtime and operational costs, while boosting productivity.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="btn-box">
+        <a href="">
+          Read More
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- end why section -->
+
+  <!-- team section -->
+  <section class="team_section layout_padding">
+  <div class="container-fluid">
+    <div class="heading_container heading_center">
+      <h2 class="">
+        Our <span>Team</span>
+      </h2>
+    </div>
+
+    <div class="team_container">
+      <div class="row">
+        <!-- Première ligne avec 3 membres -->
+        <div class="col-lg-4 col-sm-6">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static 'images/meriemanass.jpg' %}" class="img1" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>Anass Meriem</h5>
+              <p>Elève Ingénieure en GSI</p>
+            </div>
+            <div class="social_box">
+              <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- Autres membres de la première ligne -->
+        <div class="col-lg-4 col-sm-6">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static 'images/hajarakil.jpg' %}" class="img1" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>Akil Hajar</h5>
+              <p>Elève Ingénieure en GSI</p>
+            </div>
+            <div class="social_box">
+              <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static 'images/salmabiry1.jpg' %}" class="img1" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>Biry Salma</h5>
+              <p>Elève Ingénieure en GSI</p>
+            </div>
+            <div class="social_box">
+              <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deuxième ligne centrée -->
+      <div class="row justify-content-center">
+        <div class="col-lg-4 col-sm-6">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static 'images/team-4.jpg' %}" class="img1" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>Elahmar Imane</h5>
+              <p>Elève Ingénieure en GSI</p>
+            </div>
+            <div class="social_box">
+              <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-6">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static 'images/marouaratby.jpg' %}" class="img1" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>Ratby Maroua</h5>
+              <p>Elève Ingénieure en GSI</p>
+            </div>
+            <div class="social_box">
+              <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- end team section -->
+
+
+
+  <!-- info section -->
+
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_contact">
+            <h4>
+              Address
+            </h4>
+            <div class="contact_link_box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Avenue Nile 150, Casablanca
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +212 5 22 22 22 22
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  schedular@ensam-casa.com
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="info_social">
+            <a href="">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_detail">
+            <h4>
+              Info
+            </h4>
+            <p>
+              Optimize production schedules, reduce costs, and improve delivery times through smart priority management.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-2 mx-auto info_col">
+          <div class="info_link_box">
+            <h4>
+              Links
+            </h4>
+            <div class="info_links">
+              <a class="active" href="{% url 'index' %}">
+                Home
+              </a>
+              <a class="" href="{% url 'about' %}">
+                About
+              </a>
+              <a class="" href="{% url 'service' %}">
+                Services
+              </a>
+              <a class="" href="{% url 'why' %}">
+                Why Us
+              </a>
+              <a class="" href="{% url 'team' %}">
+                Team
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info_col ">
+          <h4>
+            Subscribe
+          </h4>
+          <form action="#">
+            <input type="text" placeholder="Enter email" />
+            <button type="submit">
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info section -->
+
+
+
+  <!-- jQery -->
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <!-- owl slider -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- custom js -->
+  <script type="text/javascript" src="js/custom.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+
+</body>
+
+</html>

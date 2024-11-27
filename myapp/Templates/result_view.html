@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem Sequence Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .result-container {
+            margin-top: 30px;
+        }
+        .problem-info, .sequence-info {
+            margin-bottom: 20px;
+        }
+        .sequence-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sequence-item {
+            padding: 8px;
+            margin: 5px 0;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+        }
+        /* Styling for the buttons */
+        .button-container {
+            text-align: center;
+            margin-top: 20px; /* Spacing between title and buttons */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+        .gantt-chart-container {
+            width: 100%;
+            max-width: 1200px;  /* Adjust based on your desired maximum width */
+            margin: 0 auto;      /* Center the chart container */
+            overflow: hidden;    /* Ensure no overflow if the chart is too wide */
+        }        
+    </style>
+</head>
+<body>
+    <h1>Problem and Sequence Result</h1>
+
+    <div class="result-container">
+        <!-- Problem Details -->
+        <div class="problem-info">
+            <h2>Problem Details:</h2>
+            <p><strong>Number of Jobs:</strong> {{ problem.n_jobs }}</p>
+            <p><strong>Number of Machines:</strong> {{ problem.m_machines }}</p> 
+            <p><strong>Problem Type:</strong> {{ problem.problem_type }}</p> 
+            <p><strong>Priority Rule:</strong> {{ problem.priority_rule }}</p>
+            <p><strong>Constraint:</strong> {{ problem.constraint }}</p>
+        </div>
+
+        <!-- Job Sequence -->
+        <div class="sequence-info">
+            <h2>Job Sequence</h2>
+            <ul class="sequence-list">
+                {% for job in sequence %}
+                    <li class="sequence-item">
+                        <strong>Job:</strong> {{ job }}
+                    </li>
+                {% empty %}
+                    <li>No jobs in sequence.</li>
+                {% endfor %}
+            </ul>
+            <!--<p>Job Sequence: {{ sequence }}</p>-->
+        </div>
+
+        <!-- Starting and Completion Times Table -->
+
+        <h2>Starting Times</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Machine / Job</th>
+                {% for job in jobs %}
+                    <th>{{ job.name }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for machine, st_row, _ in machine_data %}
+            <tr>
+                <td>{{ machine.name }}</td>
+                {% for st in st_row %}
+                    <td>{{ st }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Table for Completion Times -->
+    <h2>Completion Times</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Machine / Job</th>
+                {% for job in jobs %}
+                    <th>{{ job.name }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for machine, _, ct_row in machine_data %}
+            <tr>
+                <td>{{ machine.name }}</td>
+                {% for ct in ct_row %}
+                    <td>{{ ct }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+        
+
+
+         <!-- Global Problem Performance Metrics-->
+         <h2>Problem Performance Metrics</h2>
+         {% if problem_performance_metrics %}
+             <table>
+                 <thead>
+                     <tr>
+                         <th>Performance Metric</th>
+                         <th>Value</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                     <tr>
+                         <td>Makespan</td>
+                         <td>{{ problem_performance_metrics.Makespan }}</td>
+                     </tr>
+                     <tr>
+                         <td>TFT (Total Flow Time)</td>
+                         <td>{{ problem_performance_metrics.TFT }}</td>
+                     </tr>
+                     <tr>
+                         <td>TT (Total Tardiness)</td>
+                         <td>{{ problem_performance_metrics.TT }}</td>
+                     </tr>
+                     <tr>
+                         <td>TE (Total Earliness)</td>
+                         <td>{{ problem_performance_metrics.TE }}</td>
+                     </tr>
+                     <tr>
+                        <td>TU (Total )</td>
+                        <td>{{ problem_performance_metrics.TU }}</td>
+                    </tr>
+                 </tbody>
+             </table>
+         {% else %}
+             <p>No performance metrics available for this problem.</p>
+         {% endif %}
+
+        <!-- Gantt Chart Visual -->
+        <h2>Gantt Chart Visual</h2>
+        {% if gantt_chart_path %}
+        <div class="gantt-chart-container">
+            <img src="/{{ gantt_chart_path }}" alt="Gantt Chart" class="img-fluid" style="max-width: 100%; height: auto; margin: 20px 0;">
+        </div>
+        {% endif %}
+           
+        <div class="button-container">
+            <a href="{% url 'machine_report' %}">Machines Report</a>
+            <a href="{% url 'job_report' %}">Jobs Report</a>
+        </div>
+
+    </body>
+    </html>

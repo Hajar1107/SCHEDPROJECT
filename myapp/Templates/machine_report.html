@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem Sequence Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .result-container {
+            margin-top: 30px;
+        }
+        .problem-info, .sequence-info {
+            margin-bottom: 20px;
+        }
+        .sequence-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sequence-item {
+            padding: 8px;
+            margin: 5px 0;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+        .metric-table th, .metric-table td {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Machines Report :</h1>
+
+    <!-- Performance Metrics -->
+    {% load custom_filters %}
+    <h2>Machine Performances</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Performance/Machine</th>
+                {% for machine in machines %}
+                    <th>{{ machine.name }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>TFR</td>
+                {% for machine in machines %}
+                    <td>{{ TFR|get_TFR:machine.id|floatformat:2 }} %</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>TAR</td>
+                {% for machine in machines %}
+                    <td>{{ TAR|get_TAR:machine.id|floatformat:2 }} %</td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Difference of Loads between Machines</h2>
+    <p>Load: {{ LOAD|floatformat:2 }} % </p>
+
+</body>
+</html>

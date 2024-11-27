@@ -1,0 +1,243 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/png">
+
+  <title> Schedular</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+
+    <div class="hero_bg_box">
+      <div class="bg_img_box">
+        <img class="img-fluid" src="{% static 'images/hero-bg.png' %}" alt="Hero Background">
+      </div>
+    </div>
+
+    <!-- header section starts -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" href="{% url 'index' %}">
+            <span class="logo-text">
+              Schedular
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'index' %}">Home</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'about' %}">About <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'service' %}">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'why' %}">Why Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'team' %}">Team</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
+              </li>
+              <form class="form-inline">
+                <button class="btn my-2 my-sm-0 nav_search-btn" type="submit">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </form>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+  <!-- about section -->
+  <section class="about_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          <span> About Us</span>
+        </h2>
+        <p class="about-description">
+          Created Schedular, a cutting-edge scheduling application that assists in production scheduling in flow shop and job shop environments, streamlining workflows and enhancing efficiency with real-time tracking through an intuitive Gantt chart.
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="img-box">
+            <img class="img-fluid" src="{% static 'images/img1.png' %}" alt="Schedular Image">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <h3>
+              We Are Schedular
+            </h3>
+            <p>
+              Schedular is an innovative application dedicated to scheduling production processes in industrial environments such as flow shop and job shop. Our solution efficiently manages production schedules by considering priority rules and specific constraints. The application provides a clear and detailed view of tasks through an interactive Gantt chart, making it easier to track real-time progress of production.
+            </p>
+            <p>
+              Whether you are a production manager or a workshop supervisor, Schedular helps you maximize the efficiency of your manufacturing processes, reduce costs, and improve delivery times.
+            </p>
+            <p>
+              Our mission is to make scheduling simpler, faster, and more accurate, so you can focus on what matters most: the performance of your production.
+            </p>
+            <a class="btn-read-more" href="">
+              Read More
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end about section -->
+
+  <!-- info section -->
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_contact">
+            <h4>
+              Address
+            </h4>
+            <div class="contact_link_box">
+              <a href="" class="contact-link">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Avenue Nile 150, Casablanca
+                </span>
+              </a>
+              <a href="tel:+212522222222" class="contact-link">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +212 5 22 22 22 22
+                </span>
+              </a>
+              <a href="mailto:schedular@ensam-casa.com" class="contact-link">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  schedular@ensam-casa.com
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="info_social">
+            <a href="#" class="social-icon">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_detail">
+            <h4>
+              Info
+            </h4>
+            <p>
+              Optimize production schedules, reduce costs, and improve delivery times through smart priority management.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-2 mx-auto info_col">
+          <div class="info_link_box">
+            <h4>
+              Links
+            </h4>
+            <div class="info_links">
+              <a class="active" href="{% url 'index' %}">
+                Home
+              </a>
+              <a href="{% url 'about' %}">
+                About
+              </a>
+              <a href="{% url 'service' %}">
+                Services
+              </a>
+              <a href="{% url 'why' %}">
+                Why Us
+              </a>
+              <a href="{% url 'team' %}">
+                Team
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info_col">
+          <h4>
+            Subscribe
+          </h4>
+          <form action="#" method="POST">
+            <input type="email" placeholder="Enter email" class="email-input" required />
+            <button type="submit" class="subscribe-btn">
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end info section -->
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- popper js -->
+  <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+  <!-- owl carousel js -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <!-- custom js -->
+  <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+</body>
+
+</html>
